@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<teamcity-plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="urn:shemas-jetbrains-com:teamcity-plugin-v1-xml">
+  <info>
+    <name>soft-installer</name>
+    <display-name>Soft Installer</display-name>
+    <version>1.0.0.0</version>
+    <vendor>
+      <name>Leonid Bushuev</name>
+      <url>https://github.com/leo-from-spb/teamcity-soft-installer</url>
+    </vendor>
+  </info>
+  <deployment use-separate-classloader="true" />
+</teamcity-plugin>

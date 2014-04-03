@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact name="soft-install.zip">
+    <output-path>$PROJECT_DIR$/out/artifacts/soft_install_zip</output-path>
+    <root id="root">
+      <element id="archive" name="soft-install.zip">
+        <element id="directory" name="server">
+          <element id="artifact" artifact-name="soft-install-common.jar" />
+          <element id="artifact" artifact-name="soft-install-server.jar" />
+        </element>
+        <element id="file-copy" path="$PROJECT_DIR$/package/teamcity-plugin.xml" />
+      </element>
+    </root>
+  </artifact>
+</component>
