@@ -1,0 +1,16 @@
+WINDOWS
+
+    INSTALL
+
+        ! wget --no-check-certificate https://www.python.org/ftp/python/3.4.0/python-3.4.0.amd64.msi
+        ! start /b /wait  msiexec.exe /qn /i python-3.4.0.amd64.msi /log Python34.install.log
+        ! type Python34.install.log
+        ! C:\Python34\python.exe --version
+
+    PROVIDE
+   
+        Python34.home = C:\Python34
+        Python34.exe = C:\Python34\python.exe
+        env.PYTHON_HOME = C:\Python34
+
+
