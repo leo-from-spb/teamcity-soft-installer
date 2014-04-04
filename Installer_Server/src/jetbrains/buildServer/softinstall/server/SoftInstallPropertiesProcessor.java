@@ -10,6 +10,7 @@ import java.util.Map;
 
 
 /**
+ * Эта штука валидирует форму (C) Eugene
  * @author Leonid Bushuev from JetBrains
  */
 public class SoftInstallPropertiesProcessor implements PropertiesProcessor
