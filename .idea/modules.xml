@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Installer_Model/Installer_Model.iml" filepath="$PROJECT_DIR$/Installer_Model/Installer_Model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/configs/configs.iml" filepath="$PROJECT_DIR$/configs/configs.iml" />
+    </modules>
+  </component>
+</project>
+
