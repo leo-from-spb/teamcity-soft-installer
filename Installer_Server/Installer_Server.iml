@@ -48,6 +48,7 @@
     <orderEntry type="library" name="spring" level="project" />
     <orderEntry type="library" name="teamcity-common-api" level="project" />
     <orderEntry type="library" name="teamcity-server-api" level="project" />
+    <orderEntry type="module" module-name="idea-resolve-helper" scope="PROVIDED" />
   </component>
 </module>
 
