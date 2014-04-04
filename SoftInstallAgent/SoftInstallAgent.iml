@@ -24,6 +24,7 @@
     <orderEntry type="library" name="log4j" level="project" />
     <orderEntry type="library" name="Idea OpenApi" level="project" />
     <orderEntry type="module" module-name="SoftInstallCommon" />
+    <orderEntry type="library" name="spring" level="project" />
   </component>
 </module>
 
