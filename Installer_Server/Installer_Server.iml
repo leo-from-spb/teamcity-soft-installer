@@ -40,8 +40,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Idea Annotations" level="project" />
-    <orderEntry type="library" name="TeamCityCommonApi" level="project" />
-    <orderEntry type="library" name="TeamCityServerApi" level="project" />
+    <orderEntry type="library" name="TeamCity Common Api" level="project" />
+    <orderEntry type="library" name="TeamCity Server Api" level="project" />
     <orderEntry type="library" name="web standard.jar" level="project" />
     <orderEntry type="library" name="Idea OpenApi" level="project" />
     <orderEntry type="library" name="Servlet Api" level="project" />

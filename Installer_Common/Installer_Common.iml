@@ -9,7 +9,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Idea Annotations" level="project" />
     <orderEntry type="library" name="Idea OpenApi" level="project" />
-    <orderEntry type="library" name="TeamCityCommonApi" level="project" />
+    <orderEntry type="library" name="TeamCity Common Api" level="project" />
   </component>
 </module>
 

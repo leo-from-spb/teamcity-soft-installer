@@ -19,8 +19,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="TeamCityAgentApi" level="project" />
-    <orderEntry type="library" name="TeamCityCommonApi" level="project" />
+    <orderEntry type="library" name="TeamCity Agent Api" level="project" />
+    <orderEntry type="library" name="TeamCity Common Api" level="project" />
     <orderEntry type="library" name="log4j" level="project" />
     <orderEntry type="library" name="Idea OpenApi" level="project" />
     <orderEntry type="module" module-name="Installer_Common" />
