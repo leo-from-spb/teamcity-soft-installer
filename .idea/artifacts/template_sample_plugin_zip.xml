@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact name="template-sample-plugin-zip">
+    <output-path>$PROJECT_DIR$/out/artifacts/template_sample_plugin_zip</output-path>
+    <root id="root">
+      <element id="archive" name="soft-install.zip">
+        <element id="artifact" artifact-name="template-sample-plugin" />
+      </element>
+    </root>
+  </artifact>
+</component>

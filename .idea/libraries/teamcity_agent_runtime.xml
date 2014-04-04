@@ -1,10 +1,10 @@
 <component name="libraryTable">
   <library name="teamcity-agent-runtime">
     <CLASSES>
-      <root url="file://C:/TC/29177/buildAgent/lib" />
+      <root url="file://$TeamCityDistribution$/buildAgent/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
-    <jarDirectory url="file://C:/TC/29177/buildAgent/lib" recursive="false" />
+    <jarDirectory url="file://$TeamCityDistribution$/buildAgent/lib" recursive="false" />
   </library>
 </component>

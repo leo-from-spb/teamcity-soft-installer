@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact name="template-sample-deploy">
+    <output-path>$TeamCityDistribution$/../PluginDev.Data/plugins</output-path>
+    <root id="root">
+      <element id="artifact" artifact-name="soft-install.zip" />
+    </root>
+  </artifact>
+</component>

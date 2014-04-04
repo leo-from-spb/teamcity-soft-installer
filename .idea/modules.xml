@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/Installer_Common/Installer_Common.iml" filepath="$PROJECT_DIR$/Installer_Common/Installer_Common.iml" />
       <module fileurl="file://$PROJECT_DIR$/Installer_Server/Installer_Server.iml" filepath="$PROJECT_DIR$/Installer_Server/Installer_Server.iml" />
       <module fileurl="file://$PROJECT_DIR$/idea-resolve-helper.iml" filepath="$PROJECT_DIR$/idea-resolve-helper.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tests/tests.iml" filepath="$PROJECT_DIR$/tests/tests.iml" />
     </modules>
   </component>
 </project>

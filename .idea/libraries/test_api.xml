@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="test-api">
     <CLASSES>
-      <root url="jar://C:/TC/29177/devPackage/tests/tests-support.jar!/" />
+      <root url="jar://$TeamCityDistribution$/devPackage/tests/tests-support.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
