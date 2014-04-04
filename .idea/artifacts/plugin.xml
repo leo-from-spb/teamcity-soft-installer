@@ -8,24 +8,24 @@
       <element id="directory" name="agent">
         <element id="archive" name="soft-install.zip">
           <element id="archive" name="soft-install-agent.jar">
-            <element id="module-output" name="SoftInstallAgent" />
+            <element id="module-output" name="Installer_Agent" />
           </element>
-          <element id="file-copy" path="$PROJECT_DIR$/SoftInstallAgent/teamcity-agent-plugin.xml" output-file-name="teamcity-plugin.xml" />
+          <element id="file-copy" path="$PROJECT_DIR$/Installer_Agent/teamcity-agent-plugin.xml" output-file-name="teamcity-plugin.xml" />
           <element id="artifact" artifact-name="common-jar" />
         </element>
       </element>
       <element id="directory" name="server">
         <element id="archive" name="soft-install-server.jar">
-          <element id="module-output" name="SoftInstallServer" />
+          <element id="module-output" name="Installer_Server" />
         </element>
         <element id="archive" name="soft-install-resources.jar">
           <element id="directory" name="buildServerResources">
-            <element id="dir-copy" path="$PROJECT_DIR$/SoftInstallServer/resources" />
+            <element id="dir-copy" path="$PROJECT_DIR$/Installer_Server/resources" />
           </element>
         </element>
         <element id="artifact" artifact-name="common-jar" />
       </element>
-      <element id="file-copy" path="$PROJECT_DIR$/SoftInstallServer/teamcity-server-plugin.xml" output-file-name="teamcity-plugin.xml" />
+      <element id="file-copy" path="$PROJECT_DIR$/Installer_Server/teamcity-server-plugin.xml" output-file-name="teamcity-plugin.xml" />
     </root>
   </artifact>
 </component>

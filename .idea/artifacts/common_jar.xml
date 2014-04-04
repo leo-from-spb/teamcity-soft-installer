@@ -3,7 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/common_jar</output-path>
     <root id="root">
       <element id="archive" name="soft-install-common.jar">
-        <element id="module-output" name="SoftInstallCommon" />
+        <element id="module-output" name="Installer_Common" />
       </element>
     </root>
   </artifact>
