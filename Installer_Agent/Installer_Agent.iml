@@ -19,12 +19,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="TeamCity Agent Api" level="project" />
-    <orderEntry type="library" name="TeamCity Common Api" level="project" />
-    <orderEntry type="library" name="log4j" level="project" />
-    <orderEntry type="library" name="Idea OpenApi" level="project" />
     <orderEntry type="module" module-name="Installer_Common" />
+    <orderEntry type="library" name="log4j" level="project" />
+    <orderEntry type="library" name="idea-open-api" level="project" />
     <orderEntry type="library" name="spring" level="project" />
+    <orderEntry type="library" name="teamcity-common-api" level="project" />
+    <orderEntry type="library" name="teamcity-agent-api" level="project" />
+    <orderEntry type="library" name="teamcity-agent-runtime" level="project" />
   </component>
 </module>
 

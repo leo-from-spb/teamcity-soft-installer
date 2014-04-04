@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="soft-install-agent.jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/soft_install_agent_jar</output-path>
+    <root id="archive" name="soft-install-agent.jar">
+      <element id="module-output" name="Installer_Agent" />
+    </root>
+  </artifact>
+</component>
