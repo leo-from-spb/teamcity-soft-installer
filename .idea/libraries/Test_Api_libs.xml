@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Test-Api libs">
+    <CLASSES>
+      <root url="jar://C:/TC/29177/webapps/ROOT/WEB-INF/lib/xmlrpc-2.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

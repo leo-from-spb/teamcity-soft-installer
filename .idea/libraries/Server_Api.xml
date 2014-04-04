@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Server-Api">
+    <CLASSES>
+      <root url="jar://C:/TC/29177/devPackage/server-api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://C:/TC/29177/devPackage/src/openApi-source.jar!/" />
+    </SOURCES>
+  </library>
+</component>
