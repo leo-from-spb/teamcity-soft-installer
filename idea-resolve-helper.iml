@@ -44,7 +44,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="standard.jar" level="project" />
+    <orderEntry type="library" name="web standard.jar" level="project" />
     <orderEntry type="library" name="TeamCity server runtime" level="project" />
   </component>
 </module>

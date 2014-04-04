@@ -4,7 +4,7 @@
     <root id="root">
       <element id="javaee-facet-resources" facet="idea-resolve-helper/web/Web" />
       <element id="module-output" name="idea-resolve-helper" />
-      <element id="javaee-facet-resources" facet="server/web/server" />
+      <element id="javaee-facet-resources" facet="SoftInstallServer/web/server" />
     </root>
   </artifact>
 </component>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset1" name="Server" removed="false">
+          <file>file://$MODULE_DIR$/../server/fake-teamcity-server-plugin-context.xml</file>
+          <file>jar://C:/TC/29177/webapps/ROOT/WEB-INF/lib/server.jar!/META-INF/build-server-declarative-extensibility.xml</file>
+          <file>jar://C:/TC/29177/webapps/ROOT/WEB-INF/lib/server.jar!/META-INF/build-server-plugin-agents-statistics.xml</file>
+          <file>jar://C:/TC/29177/webapps/ROOT/WEB-INF/lib/server.jar!/META-INF/buildServerCompatMode.xml</file>
+          <file>jar://C:/TC/29177/webapps/ROOT/WEB-INF/lib/server.jar!/META-INF/buildServerPermissions.xml</file>
+          <file>jar://C:/TC/29177/webapps/ROOT/WEB-INF/lib/server.jar!/META-INF/buildServerPluginsSupport.xml</file>
+          <file>jar://C:/TC/29177/webapps/ROOT/WEB-INF/lib/server.jar!/META-INF/buildServerSpring.xml</file>
+          <file>jar://C:/TC/29177/webapps/ROOT/WEB-INF/lib/common-impl.jar!/META-INF/shared-spring-sub-container.xml</file>
+          <file>jar://C:/TC/29177/webapps/ROOT/WEB-INF/lib/common-impl.jar!/META-INF/plugin-model-shared-spring.xml</file>
+          <file>file://C:/TC/29177/webapps/ROOT/WEB-INF/buildServerSpringWeb.xml</file>
+          <file>file://$MODULE_DIR$/../server/src/META-INF/build-server-plugin-soft-install.xml</file>
+          <file>jar://C:/TC/29177/buildAgent/lib/common-impl.jar!/META-INF/per-plugin-shared-spring.xml</file>
+          <file>jar://C:/TC/29177/buildAgent/lib/common-impl.jar!/META-INF/plugin-model-shared-spring.xml</file>
+          <file>jar://C:/TC/29177/buildAgent/lib/common-impl.jar!/META-INF/shared-spring-sub-container.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+    <facet type="web" name="server">
+      <configuration>
+        <webroots>
+          <root url="file://$MODULE_DIR$/../server/resources" relative="/plugins/SPECIAL_NAME" />
+        </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/../server/src" />
+        </sourceRoots>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Idea Annotations" level="project" />
+    <orderEntry type="library" name="TeamCityCommonApi" level="project" />
+    <orderEntry type="library" name="TeamCityServerApi" level="project" />
+    <orderEntry type="library" name="web standard.jar" level="project" />
+    <orderEntry type="library" name="Idea OpenApi" level="project" />
+    <orderEntry type="library" name="Servlet Api" level="project" />
+    <orderEntry type="library" name="spring" level="project" />
+    <orderEntry type="module" module-name="SoftInstallCommon" />
+  </component>
+</module>
+
