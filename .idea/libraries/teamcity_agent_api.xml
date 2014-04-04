@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="teamcity-agent-api">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/devPackage/agent-api.jar!/" />
+      <root url="jar://$TeamCityDistribution$/devPackage/agent-api.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

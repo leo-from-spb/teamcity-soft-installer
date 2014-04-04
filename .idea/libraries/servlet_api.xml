@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="annotations">
+  <library name="servlet-api">
     <CLASSES>
-      <root url="jar://C:/TC/29177/webapps/ROOT/WEB-INF/lib/annotations.jar!/" />
+      <root url="jar://C:/TC/29177/lib/servlet-api.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

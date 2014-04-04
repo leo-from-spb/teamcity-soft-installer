@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="teamcity-server-api">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/devPackage/server-api.jar!/" />
-      <root url="jar://$PROJECT_DIR$/devPackage/server-common-api.jar!/" />
+      <root url="jar://$TeamCityDistribution$/devPackage/server-api.jar!/" />
+      <root url="jar://$TeamCityDistribution$/devPackage/server-common-api.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
