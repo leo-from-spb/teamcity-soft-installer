@@ -1,4 +1,4 @@
-package jetbrains.buildServer.softinstall.model;
+package jetbrains.buildServer.softinstall.models.model;
 
 import java.util.Map;
 import java.util.TreeMap;
