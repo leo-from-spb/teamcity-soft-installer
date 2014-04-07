@@ -5,12 +5,18 @@
 	<windows>
 
         <install>
-            <script>
-                wget --no-check-certificate https://www.python.org/ftp/python/3.4.0/python-3.4.0.amd64.msi
-                start /b /wait  msiexec.exe /qn /i python-3.4.0.amd64.msi /log Python34.install.log
-                type Python34.install.log
-                C:\Python34\python.exe --version
-            </script>
+            <exec>
+                <cmd-line>wget --no-check-certificate https://www.python.org/ftp/python/3.4.0/python-3.4.0.amd64.msi</cmd-line>
+            </exec>
+            <exec>
+                <cmd-line>start /b /wait  msiexec.exe /qn /i python-3.4.0.amd64.msi /log Python34.install.log</cmd-line>
+            </exec>
+            <exec>
+                <cmd-line>type Python34.install.log</cmd-line>
+            </exec>
+            <exec>
+                <cmd-line>C:\Python34\python.exe --version</cmd-line>
+            </exec>
         </install>
 
         <provide>

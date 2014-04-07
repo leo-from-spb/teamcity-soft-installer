@@ -1,6 +1,8 @@
 package jetbrains.buildServer.softinstall.models.loader;
 
+import jetbrains.buildServer.softinstall.models.model.OS;
 import jetbrains.buildServer.softinstall.models.model.SoftDescriptor;
+import jetbrains.buildServer.softinstall.models.model.SoftSection;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -26,6 +28,11 @@ public class ModelLoaderTest
 
     assertEquals(descriptor.getName(), "Python34");
     assertEquals(descriptor.getSections().size(), 1);
+
+    final SoftSection windowsSection = descriptor.getSections().get(0);
+    assertEquals(windowsSection.getOS(), OS.WINDOWS);
+    assertEquals(windowsSection.getInstallSteps().size(), 4);
+    assertEquals(windowsSection.getVars().size(), 3);
   }
 
 }

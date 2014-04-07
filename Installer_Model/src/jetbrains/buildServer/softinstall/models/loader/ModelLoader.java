@@ -9,6 +9,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -80,27 +82,49 @@ public class ModelLoader
 
   private void loadInstallPath(@NotNull SoftSection section, @NotNull Element installElement)
   {
-    // TODO loadInstallPath
-
+    final List<Element> execElements = getChildren(installElement, "exec");
+    for (Element execElement : execElements)
+    {
+      String cmdline = getInnerElementContent(execElement, "cmd-line");
+      if (cmdline == null) throw new WrongModelException("The exec step contains no cmd-line");
+      SoftInstallExecStep step = new SoftInstallExecStep(cmdline);
+      section.addInstallStep(step);
+    }
   }
 
 
   private void loadProvideVars(@NotNull SoftSection section, @NotNull Element provideElement)
   {
-    final List children = provideElement.getChildren("var");
-    for (Object child : children)
+    final List<Element> varElements = getChildren(provideElement, "var");
+    for (Element varElement : varElements)
     {
-      if (child instanceof Element) {
-        Element varElement = (Element) child;
-        String name = getAttr(varElement, "name");
-        if (name == null) throw new WrongModelException("Unnamed variable definition");
-        String expression = getTextContent(varElement);
-        if (expression == null) throw new WrongModelException("Variable "+name+" has no expression");
-        boolean override = getAttrBool(varElement, "override");
-        SoftVariable var = new SoftVariable(name, expression, override);
-        section.addVar(var);
-      }
+      String name = getAttr(varElement, "name");
+      if (name == null) throw new WrongModelException("Unnamed variable definition");
+      String expression = getTextContent(varElement);
+      if (expression == null) throw new WrongModelException("Variable "+name+" has no expression");
+      boolean override = getAttrBool(varElement, "override");
+      SoftVariable var = new SoftVariable(name, expression, override);
+      section.addVar(var);
     }
+  }
+
+  @NotNull
+  List<Element> getChildren(@Nullable Element element, @Nullable String tagName) {
+    if (element == null) return Collections.emptyList();
+    final List objects = tagName == null
+                       ? element.getChildren()
+                       : element.getChildren(tagName);
+    ArrayList<Element> children = new ArrayList<Element>(objects.size());
+    for (Object object : objects) if (object instanceof Element) children.add((Element) object);
+    return children;
+  }
+
+  @Nullable
+  String getInnerElementContent(@Nullable Element element, @Nullable String tagName) {
+    if (element == null) return null;
+    Element innerElement = element.getChild(tagName);
+    if (innerElement == null) return null;
+    return innerElement.getText();
   }
 
 
