@@ -1,6 +1,9 @@
 package jetbrains.buildServer.softinstall.models.model;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -11,10 +14,45 @@ import java.util.List;
 public class SoftSection
 {
 
-  private final List<SoftExec> myExecs = new ArrayList<SoftExec>();
-
-  private final List<SoftVariable> myProvideVars = new ArrayList<SoftVariable>();
-
   private OS myOS;
+
+  private final List<SoftInstallStep> myInstallSteps = new ArrayList<SoftInstallStep>();
+
+  private final List<SoftVariable> myVars = new ArrayList<SoftVariable>();
+
+
+  public OS getOS()
+  {
+    return myOS;
+  }
+
+
+  public void setOS(OS OS)
+  {
+    myOS = OS;
+  }
+
+
+  @NotNull
+  public List<SoftInstallStep> getInstallSteps()
+  {
+    return Collections.unmodifiableList(myInstallSteps);
+  }
+
+
+  public void addInstallStep(@NotNull SoftInstallStep step) {
+    myInstallSteps.add(step);
+  }
+
+
+  public List<SoftVariable> getVars()
+  {
+    return Collections.unmodifiableList(myVars);
+  }
+
+
+  public void addVar(@NotNull SoftVariable var) {
+    myVars.add(var);
+  }
 
 }
