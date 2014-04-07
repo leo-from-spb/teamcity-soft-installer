@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<soft-config name="Python34">
+
+	<windows>
+
+        <install>
+            <script>
+                wget --no-check-certificate https://www.python.org/ftp/python/3.4.0/python-3.4.0.amd64.msi
+                start /b /wait  msiexec.exe /qn /i python-3.4.0.amd64.msi /log Python34.install.log
+                type Python34.install.log
+                C:\Python34\python.exe --version
+            </script>
+        </install>
+
+        <provide>
+            <var name="Python34.home">C:\Python34</var>
+            <var name="Python34.exe">C:\Python34\python.exe</var>
+            <var name="env.PYTHON_HOME" override="true">C:\Python34</var>
+        </provide>
+
+	</windows>	
+
+</soft-config>

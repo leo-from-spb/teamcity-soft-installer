@@ -20,6 +20,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Installer_Common" />
+    <orderEntry type="module" module-name="Installer_Model" />
     <orderEntry type="library" name="log4j" level="project" />
     <orderEntry type="library" name="idea-open-api" level="project" />
     <orderEntry type="library" name="spring" level="project" />

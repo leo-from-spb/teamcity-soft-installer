@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Installer_Agent/Installer_Agent.iml" filepath="$PROJECT_DIR$/Installer_Agent/Installer_Agent.iml" />
       <module fileurl="file://$PROJECT_DIR$/Installer_Common/Installer_Common.iml" filepath="$PROJECT_DIR$/Installer_Common/Installer_Common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Installer_Model/Installer_Model.iml" filepath="$PROJECT_DIR$/Installer_Model/Installer_Model.iml" />
       <module fileurl="file://$PROJECT_DIR$/Installer_Server/Installer_Server.iml" filepath="$PROJECT_DIR$/Installer_Server/Installer_Server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/configs/configs.iml" filepath="$PROJECT_DIR$/configs/configs.iml" />
       <module fileurl="file://$PROJECT_DIR$/idea-resolve-helper.iml" filepath="$PROJECT_DIR$/idea-resolve-helper.iml" />
     </modules>
   </component>
