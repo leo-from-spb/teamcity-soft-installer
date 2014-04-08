@@ -6,6 +6,6 @@
 
   <bean class="jetbrains.buildServer.softinstall.server.SoftInstallModelHolder"/>
   <bean class="jetbrains.buildServer.softinstall.server.SoftInstallRunType"/>
-
+  <bean class="jetbrains.buildServer.softinstall.server.FutureParametersProvider"/>
 
 </beans>

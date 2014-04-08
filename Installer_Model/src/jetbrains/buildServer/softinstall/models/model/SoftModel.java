@@ -2,10 +2,14 @@ package jetbrains.buildServer.softinstall.models.model;
 
 import jetbrains.buildServer.softinstall.models.loader.WrongModelException;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.concurrent.ConcurrentSkipListMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 
@@ -15,7 +19,9 @@ import java.util.TreeMap;
 public class SoftModel
 {
 
-  private final Map<String,SoftDescriptor> myDescriptors = new TreeMap<String,SoftDescriptor>();
+  private final SortedMap<String,SoftDescriptor> myDescriptors = new ConcurrentSkipListMap<String,SoftDescriptor>();
+
+  private final AtomicInteger mySoftCounter = new AtomicInteger(0);
 
 
   public Map<String, SoftDescriptor> getDescriptors()
@@ -27,9 +33,15 @@ public class SoftModel
   public void addDescriptor(@NotNull SoftDescriptor descriptor) {
     String name = descriptor.getName();
     if (myDescriptors.containsKey(name)) throw new WrongModelException("The Soft Descriptor \""+name+"\" already exists.");
+    descriptor.setOrderNum(mySoftCounter.incrementAndGet());;
     myDescriptors.put(name, descriptor);
   }
 
+
+  @Nullable
+  public SoftDescriptor getDescriptor(@NotNull final String name) {
+    return myDescriptors.get(name);
+  }
 
   public int getDescriptorsCount() {
     return myDescriptors.size();

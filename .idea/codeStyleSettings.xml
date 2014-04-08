@@ -64,7 +64,6 @@
           <option name="BLANK_LINES_AFTER_IMPORTS" value="3" />
           <option name="BLANK_LINES_AROUND_CLASS" value="2" />
           <option name="BLANK_LINES_AROUND_METHOD" value="2" />
-          <option name="BRACE_STYLE" value="2" />
           <option name="CLASS_BRACE_STYLE" value="2" />
           <option name="METHOD_BRACE_STYLE" value="2" />
           <option name="ELSE_ON_NEW_LINE" value="true" />

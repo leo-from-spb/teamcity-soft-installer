@@ -76,7 +76,7 @@ public class ModelLoader
         Element element = (Element) child;
         SoftSection section = new SoftSection();
         loadSectionContent(section, element);
-        sd.addsection(section);
+        sd.addSection(section);
       }
       else {
         // TODO log it
