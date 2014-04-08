@@ -2,13 +2,13 @@ package jetbrains.buildServer.softinstall.models.loader;
 
 import jetbrains.buildServer.softinstall.models.model.*;
 import jetbrains.buildServer.util.FileUtil;
-import jetbrains.buildServer.util.XmlUtil;
 import org.jdom.Attribute;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -20,6 +20,32 @@ import java.util.List;
  */
 public class ModelLoader
 {
+
+  @NotNull
+  public SoftModel loadModel(@NotNull final File directory) {
+    SoftModel model = new SoftModel();
+    final File[] files = directory.listFiles(new FileFilter()
+                          {
+                            @Override
+                            public boolean accept(File f) {
+                              return f.isFile()
+                                  && f.length() > 0
+                                  && f.getName().endsWith(".soft.xml");
+                            }
+                          });
+    if (files != null)
+    {
+      for (File file : files)
+      {
+        SoftDescriptor descriptor =
+                loadDescriptor(file);
+        model.addDescriptor(descriptor);
+      }
+    }
+
+    return model;
+  }
+
 
 
   @NotNull
