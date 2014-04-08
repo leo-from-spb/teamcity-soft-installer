@@ -52,7 +52,7 @@ public class ModelLoader
     name = removeSuffix(name, ".soft");
     final SoftDescriptor sd = new SoftDescriptor(name);
 
-    FileUtil.readXmlFile(file, new FileUtil.Processor()
+    readXmlFile(file, new FileUtil.Processor()
     {
       @Override
       public void process(Element element)
