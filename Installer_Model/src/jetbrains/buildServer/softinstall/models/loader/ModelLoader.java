@@ -2,17 +2,14 @@ package jetbrains.buildServer.softinstall.models.loader;
 
 import jetbrains.buildServer.softinstall.models.model.*;
 import jetbrains.buildServer.util.FileUtil;
-import org.jdom.Attribute;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.FileFilter;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
+import static jetbrains.buildServer.softinstall.util.Xml.*;
 
 
 /**
@@ -132,60 +129,6 @@ public class ModelLoader
       SoftVariable var = new SoftVariable(name, expression, override);
       section.addVar(var);
     }
-  }
-
-  @NotNull
-  List<Element> getChildren(@Nullable Element element, @Nullable String tagName) {
-    if (element == null) return Collections.emptyList();
-    final List objects = tagName == null
-                       ? element.getChildren()
-                       : element.getChildren(tagName);
-    ArrayList<Element> children = new ArrayList<Element>(objects.size());
-    for (Object object : objects) if (object instanceof Element) children.add((Element) object);
-    return children;
-  }
-
-  @Nullable
-  String getInnerElementContent(@Nullable Element element, @Nullable String tagName) {
-    if (element == null) return null;
-    Element innerElement = element.getChild(tagName);
-    if (innerElement == null) return null;
-    return innerElement.getText();
-  }
-
-
-  @Nullable
-  private static String getTextContent(@Nullable final Element element) {
-    if (element == null) return null;
-    String text = element.getText();
-    if (text != null) text = text.trim();
-    return text;
-  }
-
-
-  @Nullable
-  private static String getAttr(@Nullable final Element element, @NotNull final String attrName)
-  {
-    if (element == null) return null;
-
-    final Attribute attribute = element.getAttribute(attrName);
-    if (attribute == null) return null;
-
-    return attribute.getValue();
-  }
-
-
-  private static boolean getAttrBool(@Nullable final Element element, @NotNull final String attrName) {
-    String str = getAttr(element, attrName);
-    if (str == null) return false;
-
-    str = str.toLowerCase();
-
-    return str.equals("true") ||
-           str.equals("yes") ||
-           str.equals("y") ||
-           str.equals("1") ||
-           str.equals("+");
   }
 
 
