@@ -6,6 +6,7 @@
         <element id="directory" name="server">
           <element id="artifact" artifact-name="soft-install-common.jar" />
           <element id="artifact" artifact-name="soft-install-server.jar" />
+          <element id="artifact" artifact-name="soft-install-model.jar" />
         </element>
         <element id="file-copy" path="$PROJECT_DIR$/package/teamcity-plugin.xml" />
       </element>

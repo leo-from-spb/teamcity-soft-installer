@@ -29,4 +29,10 @@ public class SoftModel
     if (myDescriptors.containsKey(name)) throw new WrongModelException("The Soft Descriptor \""+name+"\" already exists.");
     myDescriptors.put(name, descriptor);
   }
+
+
+  public int getDescriptorsCount() {
+    return myDescriptors.size();
+  }
+
 }
