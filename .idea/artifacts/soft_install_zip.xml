@@ -9,6 +9,17 @@
           <element id="artifact" artifact-name="soft-install-model.jar" />
         </element>
         <element id="file-copy" path="$PROJECT_DIR$/package/teamcity-plugin.xml" />
+        <element id="directory" name="agent">
+          <element id="archive" name="soft-install-agent.zip">
+            <element id="directory" name="soft-install-agent">
+              <element id="directory" name="lib">
+                <element id="artifact" artifact-name="soft-install-agent.jar" />
+                <element id="artifact" artifact-name="soft-install-common.jar" />
+                <element id="artifact" artifact-name="soft-install-model.jar" />
+              </element>
+            </element>
+          </element>
+        </element>
       </element>
     </root>
   </artifact>

@@ -8,6 +8,7 @@
           <file>jar://C:/TC/29177/buildAgent/lib/agent.jar!/META-INF/buildAgentSpring.xml</file>
           <file>jar://C:/TC/29177/buildAgent/lib/agent.jar!/META-INF/buildAgentPlugins.xml</file>
           <file>file://$MODULE_DIR$/../agent/fake-teamcity-agent-plugin-context.xml</file>
+          <file>file://$MODULE_DIR$/src/META-INF/build-agent-plugin-soft-install.xml</file>
         </fileset>
       </configuration>
     </facet>

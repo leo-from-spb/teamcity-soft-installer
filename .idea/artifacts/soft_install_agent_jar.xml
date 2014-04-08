@@ -3,6 +3,9 @@
     <output-path>$PROJECT_DIR$/out/artifacts/soft_install_agent_jar</output-path>
     <root id="archive" name="soft-install-agent.jar">
       <element id="module-output" name="Installer_Agent" />
+      <element id="directory" name="META-INF">
+        <element id="dir-copy" path="$PROJECT_DIR$/Installer_Agent/src/META-INF" />
+      </element>
     </root>
   </artifact>
 </component>
