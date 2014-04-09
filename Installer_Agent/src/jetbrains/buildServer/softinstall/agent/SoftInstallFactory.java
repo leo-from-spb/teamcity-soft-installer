@@ -16,13 +16,16 @@ import org.jetbrains.annotations.NotNull;
  */
 public class SoftInstallFactory implements MultiCommandBuildSessionFactory
 {
+  @NotNull
+  private final ModelObtainer myModelObtainer;
 
-
+  @NotNull
   private final Logger myLogger;
 
 
-  public SoftInstallFactory()
+  public SoftInstallFactory(@NotNull ModelObtainer modelObtainer)
   {
+    myModelObtainer = modelObtainer;
     myLogger = Logger.getInstance("SoftInstaller");
     myLogger.debug("SoftInstallFactory is created");
   }
@@ -33,7 +36,7 @@ public class SoftInstallFactory implements MultiCommandBuildSessionFactory
   public SoftInstallSession createSession(@NotNull BuildRunnerContext buildRunnerContext)
           throws RunBuildException
   {
-    return new SoftInstallSession(buildRunnerContext, myLogger);
+    return new SoftInstallSession(myModelObtainer, buildRunnerContext, myLogger);
   }
 
 

@@ -1,6 +1,7 @@
 package jetbrains.buildServer.softinstall.server;
 
 import com.intellij.openapi.diagnostic.Logger;
+import jetbrains.buildServer.controllers.AuthorizationInterceptor;
 import jetbrains.buildServer.log.Loggers;
 import jetbrains.buildServer.serverSide.ServerPaths;
 import jetbrains.buildServer.serverSide.auth.AccessDeniedException;
@@ -32,13 +33,18 @@ public class SoftInstallModelHolder
   private ModelLoader myLoader = new ModelLoader();
 
   @NotNull
+  private AuthorizationInterceptor myAuthorizationInterceptor;
+
+  @NotNull
   private Logger myLogger = Loggers.SERVER; //Logger.getInstance("SoftInstall");
 
 
 
   public SoftInstallModelHolder(@NotNull final ServerPaths serverPaths,
-                                @NotNull final WebAccessService webAccessService)
+                                @NotNull final WebAccessService webAccessService,
+                                @NotNull AuthorizationInterceptor authorizationInterceptor)
   {
+    myAuthorizationInterceptor = authorizationInterceptor;
     // READ MODEL
 
     mySoftConfigDir = new File(serverPaths.getDataDirectory(), "config/softinstall");
@@ -80,6 +86,8 @@ public class SoftInstallModelHolder
     };
 
     webAccessService.allowAccess(mySoftConfigDir, pc, wah);
+
+    myAuthorizationInterceptor.addPathNotRequiringAuth("/get/file/softinstall/**");
   }
 
 

@@ -5,8 +5,7 @@ import jetbrains.buildServer.util.FileUtil;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.File;
-import java.io.FileFilter;
+import java.io.*;
 import java.util.List;
 
 import static jetbrains.buildServer.softinstall.util.Xml.*;
@@ -50,9 +49,27 @@ public class ModelLoader
     String name = file.getName();
     name = removeSuffix(name, ".xml");
     name = removeSuffix(name, ".soft");
+
+    try {
+      InputStream inputStream = new FileInputStream(file);
+      try {
+        return loadDescriptor(inputStream, name);
+      }
+      finally {
+        inputStream.close();
+      }
+    }
+    catch (IOException ioe) {
+      throw new WrongModelException("Failed to read descriptor from file \"" + file.getAbsolutePath() + "\": " + ioe.getMessage(), ioe);
+    }
+  }
+
+
+  @NotNull
+  public SoftDescriptor loadDescriptor(@NotNull final InputStream inputStream, String name) {
     final SoftDescriptor sd = new SoftDescriptor(name);
 
-    readXmlFile(file, new FileUtil.Processor()
+    readXmlFile(inputStream, new FileUtil.Processor()
     {
       @Override
       public void process(Element element)

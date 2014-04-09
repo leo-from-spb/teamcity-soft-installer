@@ -8,10 +8,14 @@ import jetbrains.buildServer.agent.BuildProgressLogger;
 import jetbrains.buildServer.agent.BuildRunnerContext;
 import jetbrains.buildServer.agent.runner.CommandExecution;
 import jetbrains.buildServer.agent.runner.MultiCommandBuildSession;
+import jetbrains.buildServer.softinstall.models.model.SoftDescriptor;
+import jetbrains.buildServer.softinstall.models.model.SoftModel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.SortedSet;
 
 import static jetbrains.buildServer.softinstall.common.Utils.splitSoftNames;
 
@@ -22,8 +26,14 @@ import static jetbrains.buildServer.softinstall.common.Utils.splitSoftNames;
  */
 public class SoftInstallSession implements MultiCommandBuildSession
 {
+
+  //// SETTINGS \\\\
+
   @NotNull
   private final Logger myLogger;
+
+  @NotNull
+  private final ModelObtainer myModelObtainer;
 
   @NotNull
   private final BuildRunnerContext myContext;
@@ -32,13 +42,31 @@ public class SoftInstallSession implements MultiCommandBuildSession
   private final BuildProgressLogger myBuildLogger;
 
 
-  public SoftInstallSession(@NotNull BuildRunnerContext buildRunnerContext, @NotNull Logger logger)
+  //// CURRENT STATE \\\\
+
+
+  private SoftModel myModel;
+
+  private SortedSet<SoftDescriptor> myDescriptorsToInstall;
+
+  private Set<SoftDescriptor> myReadyDescriptors;
+
+
+
+  //// CONSTRUCTOR \\\\
+
+  public SoftInstallSession(@NotNull ModelObtainer modelObtainer,
+                            @NotNull BuildRunnerContext buildRunnerContext,
+                            @NotNull Logger logger)
   {
+    myModelObtainer = modelObtainer;
     myContext = buildRunnerContext;
     myBuildLogger = myContext.getBuild().getBuildLogger();
     myLogger = logger;
   }
 
+
+  //// PROCESS \\\\
 
   @Override
   public void sessionStarted()
@@ -50,9 +78,14 @@ public class SoftInstallSession implements MultiCommandBuildSession
 
     String softToInstallText = myContext.getRunnerParameters().get("softToInstall");
     Set<String> softToInstallNames = splitSoftNames(softToInstallText);
-    for (String name : softToInstallNames) {
-      myBuildLogger.message("TO INSTALL: " + name); // TODO
-    }
+
+    myBuildLogger.message("Retrieving software definitions for: " + softToInstallNames);
+    myModel = myModelObtainer.retrieveModel(softToInstallNames);
+    myDescriptorsToInstall = myModel.getDescriptors(softToInstallNames);
+    myBuildLogger.message("Software definitions are retrieved");
+
+    myReadyDescriptors = new LinkedHashSet<SoftDescriptor>(myDescriptorsToInstall.size());
+
   }
 
 

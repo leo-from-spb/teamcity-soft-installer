@@ -9,6 +9,7 @@
         >
 
 
+  <bean class="jetbrains.buildServer.softinstall.agent.ModelObtainer"/>
   <bean class="jetbrains.buildServer.softinstall.agent.SoftInstallFactory"/>
 
 
