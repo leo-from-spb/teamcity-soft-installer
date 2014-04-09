@@ -3,6 +3,8 @@ package jetbrains.buildServer.softinstall.agent;
 import com.intellij.openapi.diagnostic.Logger;
 import jetbrains.buildServer.RunBuildException;
 import jetbrains.buildServer.agent.BuildFinishedStatus;
+import jetbrains.buildServer.agent.BuildProgressLogger;
+import jetbrains.buildServer.agent.BuildRunnerContext;
 import jetbrains.buildServer.agent.runner.CommandExecution;
 import jetbrains.buildServer.agent.runner.MultiCommandBuildSession;
 import org.jetbrains.annotations.NotNull;
@@ -18,9 +20,17 @@ public class SoftInstallSession implements MultiCommandBuildSession
   @NotNull
   private final Logger myLogger;
 
+  @NotNull
+  private final BuildRunnerContext myContext;
 
-  public SoftInstallSession(@NotNull Logger logger)
+  @NotNull
+  private final BuildProgressLogger myBuildLogger;
+
+
+  public SoftInstallSession(@NotNull BuildRunnerContext buildRunnerContext, @NotNull Logger logger)
   {
+    myContext = buildRunnerContext;
+    myBuildLogger = myContext.getBuild().getBuildLogger();
     myLogger = logger;
   }
 
@@ -29,8 +39,8 @@ public class SoftInstallSession implements MultiCommandBuildSession
   public void sessionStarted()
           throws RunBuildException
   {
-    myLogger.info("HELLO!"); // TODO
-
+    myLogger.debug("Build "+myContext.getBuild().getBuildId()+" session started");
+    myBuildLogger.message("SESSION START"); // TODO
   }
 
 
@@ -49,7 +59,7 @@ public class SoftInstallSession implements MultiCommandBuildSession
   @Override
   public BuildFinishedStatus sessionFinished()
   {
-    myLogger.info("OK!"); // TODO
+    myBuildLogger.message("SESSION FINISH"); // TODO
     return BuildFinishedStatus.FINISHED_SUCCESS;
   }
 }

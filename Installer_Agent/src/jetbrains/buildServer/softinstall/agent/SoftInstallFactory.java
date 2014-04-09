@@ -33,7 +33,7 @@ public class SoftInstallFactory implements MultiCommandBuildSessionFactory
   public SoftInstallSession createSession(@NotNull BuildRunnerContext buildRunnerContext)
           throws RunBuildException
   {
-    return new SoftInstallSession(myLogger);
+    return new SoftInstallSession(buildRunnerContext, myLogger);
   }
 
 
