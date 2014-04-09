@@ -13,6 +13,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
+import static jetbrains.buildServer.softinstall.common.Utils.splitSoftNames;
+
 
 
 /**
@@ -35,15 +37,12 @@ public class FutureParametersProvider implements BuildParametersProvider
   {
     if (bt == null) return Collections.emptySet();
     final List<SBuildRunnerDescriptor> brs = bt.getBuildRunners();
-    Set<String> softToInstall = new TreeSet<String>();
+    Set<String> softToInstall = new LinkedHashSet<String>();
     for (SBuildRunnerDescriptor br : brs) {
       if (br.getRunType() instanceof SoftInstallRunType) {
         final String softToInstallText = br.getParameters().get("softToInstall");
-        String[] softToInstallStrings = softToInstallText.split("\\r?\\n");
-        for (String str : softToInstallStrings) {
-          String s = str.trim();
-          if (s.length() > 0) softToInstall.add(s);
-        }
+        Set<String> names = splitSoftNames(softToInstallText);
+        softToInstall.addAll(names);
       }
     }
     return softToInstall;
