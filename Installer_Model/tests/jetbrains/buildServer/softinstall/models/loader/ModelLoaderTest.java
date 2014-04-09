@@ -29,7 +29,7 @@ public class ModelLoaderTest
     final SoftDescriptor descriptor = loader.loadDescriptor(python34conf);
 
     assertEquals(descriptor.getName(), "Python34");
-    assertEquals(descriptor.getSections().size(), 1);
+    assertEquals(descriptor.getSections().size(), 3);
 
     final SoftSection windowsSection = descriptor.getSections().get(0);
     assertEquals(windowsSection.getOS(), OS.WINDOWS);

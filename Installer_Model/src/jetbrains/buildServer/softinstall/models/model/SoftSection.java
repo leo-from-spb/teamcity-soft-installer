@@ -11,10 +11,12 @@ import java.util.List;
 /**
  * @author Leonid Bushuev from JetBrains
  */
-public class SoftSection
+public class SoftSection implements SoftVarsProvider
 {
 
   private OS myOS;
+
+  private final List<SoftExistent> myExistents = new ArrayList<SoftExistent>();
 
   private final List<SoftInstallStep> myInstallSteps = new ArrayList<SoftInstallStep>();
 
@@ -30,6 +32,18 @@ public class SoftSection
   public void setOS(OS OS)
   {
     myOS = OS;
+  }
+
+
+  @NotNull
+  public List<SoftExistent> getExistents()
+  {
+    return Collections.unmodifiableList(myExistents);
+  }
+
+  public void addExistent(@NotNull SoftExistent existent)
+  {
+    myExistents.add(existent);
   }
 
 

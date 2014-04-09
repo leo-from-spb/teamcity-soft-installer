@@ -82,8 +82,6 @@ public class ModelLoader
         // TODO log it
       }
     }
-
-
   }
 
 
@@ -95,11 +93,35 @@ public class ModelLoader
 
     section.setOS(os);
 
+    List<Element> existentElements = getChildren(sectionElement, "existent");
+    for (Element existentElement : existentElements) loadExistent(section, existentElement);
+
     Element installElement = sectionElement.getChild("install");
     if (installElement != null) loadInstallPath(section, installElement);
 
     Element provideElement = sectionElement.getChild("provide");
     if (provideElement != null) loadProvideVars(section, provideElement);
+  }
+
+
+  private void loadExistent(@NotNull SoftSection section, @NotNull Element existentElement)
+  {
+    Element checkElement = existentElement.getChild("check");
+    if (checkElement == null) return;
+
+    SoftExistent existent = new SoftExistent();
+
+    List<Element> fileExistsChecks = getChildren(checkElement, "file-exists");
+    for (Element fileExistsCheck : fileExistsChecks) {
+      String fileSpec = getTextContent(fileExistsCheck);
+      if (fileSpec == null) continue;
+      existent.addCheck(new SoftCheckFile(fileSpec));
+    }
+
+    Element provideElement = existentElement.getChild("provide");
+    if (provideElement != null) loadProvideVars(existent, provideElement);
+
+    section.addExistent(existent);
   }
 
 
@@ -116,7 +138,7 @@ public class ModelLoader
   }
 
 
-  private void loadProvideVars(@NotNull SoftSection section, @NotNull Element provideElement)
+  private void loadProvideVars(@NotNull SoftVarsProvider varsProvider, @NotNull Element provideElement)
   {
     final List<Element> varElements = getChildren(provideElement, "var");
     for (Element varElement : varElements)
@@ -127,7 +149,7 @@ public class ModelLoader
       if (expression == null) throw new WrongModelException("Variable "+name+" has no expression");
       boolean override = getAttrBool(varElement, "override");
       SoftVariable var = new SoftVariable(name, expression, override);
-      section.addVar(var);
+      varsProvider.addVar(var);
     }
   }
 
