@@ -16,6 +16,7 @@ import jetbrains.buildServer.agent.runner.CommandExecution;
 import jetbrains.buildServer.agent.runner.MultiCommandBuildSession;
 import jetbrains.buildServer.softinstall.models.loader.WrongModelException;
 import jetbrains.buildServer.softinstall.models.model.*;
+import jetbrains.buildServer.util.FileUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -143,7 +144,8 @@ public class SoftInstallSession implements MultiCommandBuildSession
       for (SoftExistent existent : section.getExistents()) {
         boolean checksOk = true;
         for (SoftCheckFile checkFile : existent.getChecks()) {
-          File file = new File(workingDirectory, checkFile.getFileSpec());
+          final String checkFileSpec = checkFile.getFileSpec();
+          File file = FileUtil.resolvePath(workingDirectory, checkFileSpec);
           if (!file.isFile()) {
             myLogger.debug("File \"" + file.getAbsolutePath() + "\" doesn't exist");
             checksOk = false;
@@ -229,8 +231,21 @@ public class SoftInstallSession implements MultiCommandBuildSession
     myBuildLogger.message("RUNNING: " + cmdLine);
 
     ExecResult result = runCommand(cmdLine);
-    if (result.getExitCode() != 0) {
-      throw new SoftInstallException("Exit code "+result.getExitCode()+" from process: " + cmdLine);
+    final int exitCode = result.getExitCode();
+
+    final String stdout = result.getStdout();
+    if (stdout.length() > 0) {
+      logMessage(stdout);
+    }
+
+    final String stderr = result.getStderr();
+    if (stderr.length() > 0) {
+      if (exitCode != 0) myBuildLogger.error(stderr);
+      else logMessage(stderr);
+    }
+
+    if (exitCode != 0) {
+      throw new SoftInstallException("Exit code "+ exitCode +" from process: " + cmdLine);
     }
   }
 
